@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        set<int> result;
+        while(n!=1 && result.find(n)==result.end())
+        {
+               result.insert(n);
+              n=square(n);
+        }
+        return n==1;
+    }
+    int square(int n)
+    {
+        int d=0;
+        while(n>0)
+        {
+            int m=n%10;
+            n=n/10;
+            d=d+(m*m);
+        }
+        return d;
+    }
+};
