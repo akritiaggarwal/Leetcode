@@ -1,0 +1,16 @@
+class Solution:
+    def digitSum(self, s: str, k: int) -> str:
+        while len(s) > k:
+            l = []
+            l = [(s[i:i+k]) for i in range(0, len(s), k)]
+            l1 = []
+            for i in l:
+                c = 0
+                for j in i:
+                    c += int(j)
+                l1.append(c)
+            for i in range(len(l)):
+                l[i] = str(l1[i])
+            s = "".join(l)
+        return s
+        
